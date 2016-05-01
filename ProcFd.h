@@ -1,5 +1,5 @@
-#ifndef NETTOMON_PROCFD_H
-#define NETTOMON_PROCFD_H
+#ifndef PROCSOCK_PROCFD_H
+#define PROCSOCK_PROCFD_H
 
 #include <fstream>
 #include <vector>
@@ -20,4 +20,4 @@ private:
 };
 
 
-#endif //NETTOMON_PROCFD_H
+#endif //PROCSOCK_PROCFD_H

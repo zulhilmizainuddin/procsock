@@ -1,5 +1,5 @@
-#ifndef NETTOMON_PROCNET_H
-#define NETTOMON_PROCNET_H
+#ifndef PROCSOCK_PROCNET_H
+#define PROCSOCK_PROCNET_H
 
 #include <string>
 #include <unordered_map>
@@ -23,4 +23,4 @@ private:
 };
 
 
-#endif //NETTOMON_PROCNET_H
+#endif //PROCSOCK_PROCNET_H

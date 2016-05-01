@@ -1,5 +1,5 @@
-#ifndef NETTOMON_NETDATA_H
-#define NETTOMON_NETDATA_H
+#ifndef PROCSOCK_NETDATA_H
+#define PROCSOCK_NETDATA_H
 
 #include <string>
 
@@ -12,4 +12,4 @@ struct NetData {
     string remotePort;
 };
 
-#endif //NETTOMON_NETDATA_H
+#endif //PROCSOCK_NETDATA_H

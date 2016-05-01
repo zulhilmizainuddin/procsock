@@ -1,5 +1,5 @@
-#ifndef NETTOMON_PROCESSID_H
-#define NETTOMON_PROCESSID_H
+#ifndef PROCSOCK_PROCESSID_H
+#define PROCSOCK_PROCESSID_H
 
 
 #include <string>
@@ -15,4 +15,4 @@ private:
 };
 
 
-#endif //NETTOMON_PROCESSID_H
+#endif //PROCSOCK_PROCESSID_H

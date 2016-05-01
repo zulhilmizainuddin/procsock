@@ -1,5 +1,5 @@
-#ifndef NETTOMON_INODEIPHELPER_H
-#define NETTOMON_INODEIPHELPER_H
+#ifndef PROCSOCK_INODEIPHELPER_H
+#define PROCSOCK_INODEIPHELPER_H
 
 #include <string>
 #include <vector>
@@ -14,4 +14,4 @@ public:
 };
 
 
-#endif //NETTOMON_INODEIPHELPER_H
+#endif //PROCSOCK_INODEIPHELPER_H
