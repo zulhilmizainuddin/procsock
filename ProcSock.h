@@ -16,11 +16,13 @@ public:
     ProcSock(unsigned int processId) throw(invalid_argument);
     ProcSock(const string &processName) throw(invalid_argument);
 
-    virtual bool readOpenedSocketsIp();
     virtual vector<NetData> getTcp4SocketsInfo();
     virtual vector<NetData> getUdp4SocketsInfo();
     virtual vector<NetData> getTcp6SocketsInfo();
     virtual vector<NetData> getUdp6SocketsInfo();
+
+protected:
+    virtual void readOpenedSocketsIp();
 
 private:
     unsigned int processId;
