@@ -6,13 +6,34 @@
 #include "ProcSock.h"
 
 
-void ProcSock::readOpenedSocketsIp() {
+ProcSock::ProcSock(unsigned int processId) throw(invalid_argument) : processId(processId) {
+    if (processId > 65535) {
+        throw invalid_argument("process id " + to_string(processId) + " out of range");
+    }
+}
+
+ProcSock::ProcSock(const string &processName) throw(invalid_argument) : processName(processName) {
+    try {
+        processId = static_cast<unsigned int>(stoul(ProcessId().getProcessId(processName)));
+    }
+    catch (invalid_argument ex) {
+        throw invalid_argument("process " + processName + " does not exist");
+    }
+}
+
+bool ProcSock::readOpenedSocketsIp() {
     unordered_map<string, NetData> tcpInodeIp;
     unordered_map<string, NetData> udpInodeIp;
     unordered_map<string, NetData> tcp6InodeIp;
     unordered_map<string, NetData> udp6InodeIp;
 
-    vector<string> socketsInode = ProcFd(to_string(processId)).getSocketInodeList();
+    vector<string> socketsInode;
+    try {
+        socketsInode = ProcFd(to_string(processId)).getSocketInodeList();
+    }
+    catch (invalid_argument ex) {
+        return false;
+    }
 
     #pragma omp parallel sections
     {
@@ -43,6 +64,8 @@ void ProcSock::readOpenedSocketsIp() {
         #pragma omp section
         udp6NetData = InodeIpHelper::filterProccessIp(socketsInode, udp6InodeIp);
     }
+
+    return true;
 }
 
 

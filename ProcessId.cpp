@@ -14,8 +14,7 @@ string ProcessId::retrieveProcessId(const string &processName) {
 
     DIR* procDirectory = opendir(procDirectoryName.c_str());
     if (procDirectory == nullptr) {
-        perror(string(procDirectoryName + " does not exist").c_str());
-        exit(1);
+        throw invalid_argument(procDirectoryName + " does not exist");
     }
 
     string processId;

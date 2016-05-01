@@ -13,20 +13,17 @@ using namespace std;
 
 class ProcSock : public SocketIp {
 public:
-    ProcSock(unsigned short processId) : processId(processId) { }
+    ProcSock(unsigned int processId) throw(invalid_argument);
+    ProcSock(const string &processName) throw(invalid_argument);
 
-    ProcSock(const string &processName) : processName(processName) {
-        processId = static_cast<unsigned short>(stoul(ProcessId().getProcessId(processName)));
-    }
-
-    virtual void readOpenedSocketsIp();
+    virtual bool readOpenedSocketsIp();
     virtual vector<NetData> getTcp4SocketsInfo();
     virtual vector<NetData> getUdp4SocketsInfo();
     virtual vector<NetData> getTcp6SocketsInfo();
     virtual vector<NetData> getUdp6SocketsInfo();
 
 private:
-    unsigned short processId;
+    unsigned int processId;
     string processName;
 
     vector<NetData> tcpNetData;

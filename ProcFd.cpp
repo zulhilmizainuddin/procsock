@@ -14,8 +14,7 @@ vector<string> ProcFd::retrieveSocketsInode() {
 
     DIR* directory = opendir(directoryName.c_str());
     if (directory == nullptr) {
-        perror(string(directoryName + " does not exist").c_str());
-        exit(1);
+        throw invalid_argument(directoryName + " does not exist");
     }
 
     vector<string> socketInodeList;

@@ -5,7 +5,7 @@
 
 class SocketIp {
 public:
-    virtual void readOpenedSocketsIp() = 0;
+    virtual bool readOpenedSocketsIp() = 0;
     virtual vector<NetData> getTcp4SocketsInfo() = 0;
     virtual vector<NetData> getUdp4SocketsInfo() = 0;
     virtual vector<NetData> getTcp6SocketsInfo() = 0;
