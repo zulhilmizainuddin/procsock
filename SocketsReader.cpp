@@ -81,8 +81,8 @@ NetDataAll SocketsReader::Read() {
         for (int i = 0; i < tcp6NetData.size(); ++i) {
             NetData convertedNetData;
 
-            convertedNetData.localIp = HexToIp::convertHexToIpv4(tcp6NetData[i].localIp);
-            convertedNetData.remoteIp = HexToIp::convertHexToIpv4(tcp6NetData[i].remoteIp);
+            convertedNetData.localIp = HexToIp::convertHexToIpv6(tcp6NetData[i].localIp);
+            convertedNetData.remoteIp = HexToIp::convertHexToIpv6(tcp6NetData[i].remoteIp);
 
             convertedNetData.localPort = HexToIp::convertHexToPort(tcp6NetData[i].localPort);
             convertedNetData.remotePort = HexToIp::convertHexToPort(tcp6NetData[i].remotePort);
@@ -94,8 +94,8 @@ NetDataAll SocketsReader::Read() {
         for (int i = 0; i < udp6NetData.size(); ++i) {
             NetData convertedNetData;
 
-            convertedNetData.localIp = HexToIp::convertHexToIpv4(udp6NetData[i].localIp);
-            convertedNetData.remoteIp = HexToIp::convertHexToIpv4(udp6NetData[i].remoteIp);
+            convertedNetData.localIp = HexToIp::convertHexToIpv6(udp6NetData[i].localIp);
+            convertedNetData.remoteIp = HexToIp::convertHexToIpv6(udp6NetData[i].remoteIp);
 
             convertedNetData.localPort = HexToIp::convertHexToPort(udp6NetData[i].localPort);
             convertedNetData.remotePort = HexToIp::convertHexToPort(udp6NetData[i].remotePort);
