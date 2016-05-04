@@ -14,5 +14,9 @@ set(SOURCE_FILES
         ProcNet.cpp ProcNet.h
         ProcSock.cpp ProcSock.h
         SocketInfo.h
-        SocketsReader.cpp SocketsReader.h)
+        SocketsReader.cpp SocketsReader.h
+        TcpSocketsReader.cpp TcpSocketsReader.h
+        Tcp6SocketsReader.cpp Tcp6SocketsReader.h
+        UdpSocketsReader.cpp UdpSocketsReader.h
+        Udp6SocketsReader.cpp Udp6SocketsReader.h)
 add_executable(ProcSock ${SOURCE_FILES})

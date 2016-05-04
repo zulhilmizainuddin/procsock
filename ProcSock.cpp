@@ -1,6 +1,10 @@
 #include "SocketsReader.h"
 #include "ProcessId.h"
 #include "ProcSock.h"
+#include "TcpSocketsReader.h"
+#include "UdpSocketsReader.h"
+#include "Tcp6SocketsReader.h"
+#include "Udp6SocketsReader.h"
 
 
 ProcSock::ProcSock(unsigned int processId) throw(invalid_argument) : processId(processId) {
@@ -29,17 +33,17 @@ NetDataAll ProcSock::readAllSockets() {
 }
 
 vector<NetData> ProcSock::readIpv4TcpSockets() {
-
+    return TcpSocketsReader(processId).Read();
 }
 
 vector<NetData> ProcSock::readIpv4UdpSockets() {
-
+    return UdpSocketsReader(processId).Read();
 }
 
 vector<NetData> ProcSock::readIpv6TcpSockets() {
-
+    return Tcp6SocketsReader(processId).Read();
 }
 
 vector<NetData> ProcSock::readIpv6UdpSockets() {
-
+    return Udp6SocketsReader(processId).Read();
 }
