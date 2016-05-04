@@ -8,9 +8,11 @@ set(SOURCE_FILES
         InodeIpHelper.cpp InodeIpHelper.h
         main.cpp
         NetData.h
+        NetDataAll.h
         ProcFd.cpp ProcFd.h
         ProcessId.cpp ProcessId.h
         ProcNet.cpp ProcNet.h
         ProcSock.cpp ProcSock.h
-        SocketIp.h)
+        SocketInfo.h
+        SocketsReader.cpp SocketsReader.h)
 add_executable(ProcSock ${SOURCE_FILES})

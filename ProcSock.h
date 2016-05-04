@@ -2,36 +2,30 @@
 #define PROCSOCK_PROCSOCK_H
 
 
+#include <stdexcept>
 #include <string>
 #include <vector>
 #include "NetData.h"
-#include "ProcessId.h"
-#include "SocketIp.h"
+#include "NetDataAll.h"
+#include "SocketInfo.h"
 
 
 using namespace std;
 
-class ProcSock : public SocketIp {
+class ProcSock : public SocketInfo {
 public:
     ProcSock(unsigned int processId) throw(invalid_argument);
     ProcSock(const string &processName) throw(invalid_argument);
 
-    virtual vector<NetData> getTcp4SocketsInfo();
-    virtual vector<NetData> getUdp4SocketsInfo();
-    virtual vector<NetData> getTcp6SocketsInfo();
-    virtual vector<NetData> getUdp6SocketsInfo();
-
-protected:
-    virtual void readOpenedSocketsIp();
+    virtual NetDataAll readAllSockets();
+    virtual vector<NetData> readIpv4TcpSockets();
+    virtual vector<NetData> readIpv4UdpSockets();
+    virtual vector<NetData> readIpv6TcpSockets();
+    virtual vector<NetData> readIpv6UdpSockets();
 
 private:
     unsigned int processId;
     string processName;
-
-    vector<NetData> tcpNetData;
-    vector<NetData> udpNetData;
-    vector<NetData> tcp6NetData;
-    vector<NetData> udp6NetData;
 };
 
 
