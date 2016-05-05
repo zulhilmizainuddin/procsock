@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.3)
-project(ProcSock)
+project(procsock)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -fopenmp")
 
@@ -19,4 +19,11 @@ set(SOURCE_FILES
         Tcp6SocketsReader.cpp Tcp6SocketsReader.h
         UdpSocketsReader.cpp UdpSocketsReader.h
         Udp6SocketsReader.cpp Udp6SocketsReader.h)
-add_executable(ProcSock ${SOURCE_FILES})
+
+add_library(procsock-shared SHARED ${SOURCE_FILES})
+add_library(procsock-static STATIC ${SOURCE_FILES})
+
+set_target_properties(procsock-shared PROPERTIES OUTPUT_NAME procsock)
+set_target_properties(procsock-static PROPERTIES OUTPUT_NAME procsock)
+
+#add_executable(procsock ${SOURCE_FILES})
