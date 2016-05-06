@@ -13,6 +13,8 @@ set(SOURCE_FILES
         ProcessId.cpp ProcessId.h
         ProcNet.cpp ProcNet.h
         ProcSock.cpp ProcSock.h
+        Reader.h
+        ReaderAll.h
         SocketInfo.h
         SocketsReader.cpp SocketsReader.h
         TcpSocketsReader.cpp TcpSocketsReader.h

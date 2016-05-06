@@ -4,12 +4,13 @@
 
 #include <vector>
 #include "NetData.h"
+#include "Reader.h"
 
-class Tcp6SocketsReader {
+class Tcp6SocketsReader : public Reader {
 public:
     Tcp6SocketsReader(unsigned short processId) : processId(processId) { }
 
-    vector<NetData> Read();
+    virtual vector<NetData> Read();
 
 private:
     unsigned short processId;

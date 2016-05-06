@@ -3,15 +3,16 @@
 
 
 #include "NetDataAll.h"
+#include "ReaderAll.h"
 
 
 using namespace std;
 
-class SocketsReader {
+class SocketsReader : public ReaderAll {
 public:
     SocketsReader(unsigned short processId) : processId(processId) { }
 
-    NetDataAll Read();
+    virtual NetDataAll Read();
 
 private:
     unsigned short processId;
